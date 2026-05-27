@@ -48,8 +48,3 @@ def limpar_datas(df):
         errors='coerce'
     )
     return df
-
-def limpar_duplicatas(df):
-    # Remove linhas duplicadas
-    df = df.drop_duplicates()
-    return df

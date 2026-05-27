@@ -54,9 +54,33 @@ Conforme resultado da análise exploratória, foram aplicadas as seguintes corre
 - Substituição de valores nulos `#N/D` para `pd.NA`, para ser reconhecido pelo Pandas
 - Limpeza e conversão da coluna `DATA` de `object` para `datetime`
 
-
 ### Análise de Duplicatas
 
 A investigação de duplicatas identificou um grande número de registros repetidos. Porém, após análise da estrutura da base, optou-se por não remover essas linhas.
 
 A decisão foi tomada porque a base não possui uma coluna identificadora única por item ou uma coluna de quantidade comprada, indicando que registros repetidos podem representar múltiplas unidades legítimas do mesmo produto em uma compra.
+
+## Estatística Descritiva
+
+O arquivo estatistica.py realiza a análise estatística da coluna CL_FHL (quantidade de filhos dos clientes).
+
+#### Métricas calculadas
+
+- Média;
+- Mediana;
+- Moda;
+- Valor mínimo;
+- Valor máximo;
+- Desvio padrão;
+- Contagem de registros;
+- Quartis.
+
+#### Resultados encontrados
+
+- Média de filhos: 1.14
+- Mediana: 0
+- Moda: 0
+- Máximo: 4
+- Mínimo: 0
+
+Os resultados indicam que a maior parte dos clientes não possui filhos.
