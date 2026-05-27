@@ -4,25 +4,45 @@
 
 ### Exploração Inicial dos Dados
 
-O arquivo exploracao.py realiza a leitura da base de dados e a inspeção inicial do DataFrame. Nesta etapa foram verificadas as informações básicas da estrutura dos dados, incluindo:
+O arquivo `exploracao.py` realiza a leitura da base de dados e a inspeção inicial do DataFrame. Nesta etapa foram verificadas:
 
 - Visualização das primeiras linhas da base;
 - Quantidade de linhas e colunas;
 - Nomes das colunas;
 - Tipos de dados identificados;
-- Quantidade de valores nulos por coluna.
+- Quantidade de valores nulos por coluna;
+- Estatísticas iniciais das colunas numéricas;
+- Valores únicos de colunas categóricas.
 
 ### Principais descobertas
 
-Durante a importação foi identificado que o arquivo CSV utiliza o caractere ; como separador de colunas. Inicialmente o pandas interpretou todo o conteúdo como uma única coluna, sendo necessário informar o delimitador na leitura do arquivo.
+Durante a importação foi identificado que o arquivo CSV utiliza o caractere `;` como separador de colunas. Inicialmente o pandas interpretou todo o conteúdo como uma única coluna, sendo necessário informar o delimitador corretamente na leitura do arquivo.
 
-Também foram identificadas quatro colunas nomeadas automaticamente como:
+### Inconsistências identificadas
 
-- Unnamed: 10
-- Unnamed: 11
-- Unnamed: 12
-- Unnamed: 13
+#### Colunas Float totalmente vazias
 
-Essas colunas serão investigadas nas próximas etapas para verificar se contêm informações relevantes ou se representam inconsistências na estrutura do arquivo.
+- `Unnamed: 10`
+- `Unnamed: 11`
+- `Unnamed: 12`
+- `Unnamed: 13`
 
-Além disso, foi observado que a coluna DATA está sendo interpretada como object, será necessário a conversão para o tipo datetime durante o processo de limpeza e preparação dos dados.
+#### Colunas String
+
+- `CL_GENERO` sem inconsistências aparentes;
+- `CL_SEG` sem inconsistências aparentes;
+- `PR_CAT` possui registros com valor `#N/D`.
+
+#### Colunas Integer
+
+As colunas abaixo não apresentaram inconsistências aparentes:
+
+- `CO_ID`
+- `CL_ID`
+- `CL_EC`
+- `CL_FHL`
+- `PR_ID`
+
+#### Coluna Date
+
+A coluna `DATA` está sendo interpretada como `object`, sendo necessária a conversão para o tipo `datetime`.
