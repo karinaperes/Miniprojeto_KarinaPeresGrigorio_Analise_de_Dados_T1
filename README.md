@@ -46,3 +46,17 @@ As colunas abaixo não apresentaram inconsistências aparentes:
 #### Coluna Date
 
 A coluna `DATA` está sendo interpretada como `object`, sendo necessária a conversão para o tipo `datetime`.
+
+Conforme resultado da análise exploratória, foram aplicadas as seguintes correções:
+
+- Limpeza de texto remoção de espaços extras, acentos e conversão para maiúsculo
+- Remoção das colunas vazias
+- Substituição de valores nulos `#N/D` para `pd.NA`, para ser reconhecido pelo Pandas
+- Limpeza e conversão da coluna `DATA` de `object` para `datetime`
+
+
+### Análise de Duplicatas
+
+A investigação de duplicatas identificou um grande número de registros repetidos. Porém, após análise da estrutura da base, optou-se por não remover essas linhas.
+
+A decisão foi tomada porque a base não possui uma coluna identificadora única por item ou uma coluna de quantidade comprada, indicando que registros repetidos podem representar múltiplas unidades legítimas do mesmo produto em uma compra.
