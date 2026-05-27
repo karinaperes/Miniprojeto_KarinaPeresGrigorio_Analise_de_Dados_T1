@@ -49,3 +49,15 @@ def analisar_colunas(df):
     
     print('\nPrimeiros valores da coluna DATA:')
     print(df["DATA"].head(10))
+
+def analisar_duplicatas(df):
+    print('\n--> Análise de duplicatas:')
+    print('-----------------------------------')
+    print(f'Número total de linhas: {len(df)}')
+    print(f'Número de linhas duplicadas: {df.duplicated().sum()}')
+
+    print('\nExemplo de linhas duplicadas:')
+    print(df[df.duplicated()].head())
+
+    print('\nNúmero de duplicatas considerando apenas as colunas CO_ID, PR_NOME e DATA:')
+    print(df[['CO_ID', 'PR_NOME', 'DATA']].duplicated().sum())
