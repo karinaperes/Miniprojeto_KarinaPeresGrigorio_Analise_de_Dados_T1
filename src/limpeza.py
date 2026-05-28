@@ -29,8 +29,8 @@ def remover_colunas_vazias(df):
     return df
 
 def substituir_nulos(df):
-    #Substitui valores "#N/D" por NaN na coluna PR_CAT
-    df['PR_CAT'] = df['PR_CAT'].replace('#N/D', pd.NA)
+    #Substitui valores "#N/D" por "SEM CATEGORIA" na coluna PR_CAT
+    df['PR_CAT'] = df['PR_CAT'].replace('#N/D', 'SEM CATEGORIA')
     return df
 
 def limpar_datas(df):

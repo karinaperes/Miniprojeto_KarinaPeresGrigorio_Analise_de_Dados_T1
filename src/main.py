@@ -2,7 +2,8 @@ from exploracao import (
     carregar_dados, 
     exibir_informacoes, 
     analisar_colunas, 
-    analisar_duplicatas
+    analisar_duplicatas,
+    analisar_correspondencia
     )
 from limpeza import (
     limpar_texto,
@@ -18,6 +19,7 @@ def main():
     exibir_informacoes(df) 
     analisar_colunas(df)
     analisar_duplicatas(df)
+    analisar_correspondencia(df)
     df = limpar_texto(df)
     df = remover_colunas_vazias(df)
     df = substituir_nulos(df)
@@ -26,10 +28,12 @@ def main():
     # Analisar filhos
     estatisticas_filhos = analisar_filhos(df)
     print("\nEstatísticas dos filhos:")
+    print('-----------------------------------')
     for chave, valor in estatisticas_filhos.items():
         print(f"{chave.capitalize()}: {valor}")
 
     print("\nDados limpos:")
+    print('-----------------------------------')
     print(df.head())
 
 if __name__ == "__main__":
