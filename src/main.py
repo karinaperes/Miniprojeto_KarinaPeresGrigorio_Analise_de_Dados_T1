@@ -9,7 +9,8 @@ from limpeza import (
     limpar_texto,
     remover_colunas_vazias, 
     substituir_nulos, 
-    limpar_datas
+    limpar_datas,
+    salvar_dados_limpos
     )
 from estatistica import analisar_filhos
 
@@ -24,6 +25,7 @@ def main():
     df = remover_colunas_vazias(df)
     df = substituir_nulos(df)
     df = limpar_datas(df)
+    df = salvar_dados_limpos(df)  
 
     # Analisar filhos
     estatisticas_filhos = analisar_filhos(df)
@@ -34,6 +36,9 @@ def main():
 
     print("\nDados limpos:")
     print('-----------------------------------')
+    print('\nValores nulos por coluna após limpeza:')
+    print('-----------------------------------')
+    print(df.isnull().sum())
     print(df.head())
 
 if __name__ == "__main__":

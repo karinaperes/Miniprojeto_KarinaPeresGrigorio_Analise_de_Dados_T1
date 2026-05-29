@@ -52,6 +52,17 @@ def exibir_informacoes(df):
     print('-----------------------------------')
     print(df.isnull().sum())
 
+    print('\nValores inválidos por coluna #N/D:')
+    print('-----------------------------------')
+    valores_invalidos = ['#N/D']
+
+    for coluna in df.columns:
+        quantidade = df[coluna].isin(valores_invalidos).sum()
+
+        if quantidade > 0:
+            print(f'{coluna}: {quantidade}')
+    
+
 def analisar_colunas(df):
     print('\n--> Análise por coluna:')
 
@@ -72,10 +83,6 @@ def analisar_colunas(df):
     print('\nValores únicos na coluna PR_CAT:')
     print('-----------------------------------')
     print(df["PR_CAT"].unique())
-    
-    print('\nPrimeiros valores da coluna DATA:')
-    print('-----------------------------------')
-    print(df["DATA"].head(10))
 
 def analisar_duplicatas(df):
     print('\n--> Análise de duplicatas:')
@@ -87,9 +94,9 @@ def analisar_duplicatas(df):
     print('-----------------------------------')
     print(df[df.duplicated()].head())
 
-    print('\nNúmero de duplicatas considerando apenas as colunas CO_ID, PR_NOME e DATA:')
+    print('\nNúmero de duplicatas considerando todas as colunas:')
     print('-----------------------------------')
-    print(df[['CO_ID', 'PR_NOME', 'DATA']].duplicated().sum())
+    print(df.duplicated().sum())
 
 def analisar_correspondencia(df):
     print('\n--> Análise de correspondências:')
