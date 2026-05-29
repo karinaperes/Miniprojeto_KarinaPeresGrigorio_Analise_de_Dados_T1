@@ -1,22 +1,16 @@
 ## Mini-Projeto Avaliativo - Curso Análise de Dados com Python - SCTEC
 
-O processo de ETL (Extract, Transform and Load) é fundamental para garantir que os dados utilizados em análises estejam organizados, padronizados e confiáveis.
-
-Durante o projeto foi possível identificar inconsistências como colunas vazias, categorias inválidas, registros duplicados e diferenças entre identificadores de produtos. Essas inconsistências demonstram a importância da qualidade dos dados para evitar análises incorretas e garantir resultados mais confiáveis.
-
 # Análise Exploratória
 
 ### Exploração Inicial dos Dados
 
-O arquivo `exploracao.py` realiza a leitura da base de dados e a inspeção inicial do DataFrame. Nesta etapa foram verificadas:
+O arquivo exploracao.py realiza a leitura da base de dados e a inspeção inicial do DataFrame. Nesta etapa foram verificadas as informações básicas da estrutura dos dados, incluindo:
 
 - Visualização das primeiras linhas da base;
 - Quantidade de linhas e colunas;
 - Nomes das colunas;
 - Tipos de dados identificados;
-- Quantidade de valores nulos por coluna;
-- Estatísticas iniciais das colunas numéricas;
-- Valores únicos de colunas categóricas.
+- Quantidade de valores nulos por coluna.
 
 ### Principais descobertas
 
@@ -129,15 +123,13 @@ Duplicidade de cadastro;
 Variações do mesmo produto cadastradas com IDs diferentes;
 Inconsistências na modelagem da base.
 
-## Relação entre PR_CAT, PR_NOME e PR_ID
+Também foram identificadas quatro colunas nomeadas automaticamente como:
 
-A análise por categoria mostrou divergência entre quantidade de nomes de produtos e quantidade de IDs:
+- Unnamed: 10
+- Unnamed: 11
+- Unnamed: 12
+- Unnamed: 13
 
-| Categoria | PR_NOME únicos | PR_ID únicos |
-| --------- | -------------- | ------------ |
-| ALIMENTOS | 61             | 120          |
-| HIGIENE   | 22             | 43           |
-| LIMPEZA   | 21             | 40           |
-| BEBIDAS   | 6              | 12           |
+Essas colunas serão investigadas nas próximas etapas para verificar se contêm informações relevantes ou se representam inconsistências na estrutura do arquivo.
 
-Os resultados indicam possível inconsistência entre identificadores de produtos. A unificação dos PR_ID não foi aplicada por falta de informações que permitam identificar qual código deve ser considerado correto.
+Além disso, foi observado que a coluna DATA está sendo interpretada como object, será necessário a conversão para o tipo datetime durante o processo de limpeza e preparação dos dados.
