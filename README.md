@@ -37,7 +37,7 @@ Durante essa alteração surgiu um problema importante: todas as colunas passara
 
 Isso causou erros nas análises estatísticas, especialmente na execução do método describe(), além de falhas em operações matemáticas e cálculos estatísticos, pois colunas numéricas estavam sendo interpretadas como texto.
 
-Para resolver o problema, foi necessário converter manualmente as colunas numéricas utilizando pd.to_numeric()
+Para resolver o problema, foi necessário converter manualmente as colunas numéricas utilizando pd.to_numeric().
 
 ### Inconsistências identificadas
 
