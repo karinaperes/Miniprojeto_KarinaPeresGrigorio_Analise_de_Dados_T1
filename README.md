@@ -21,6 +21,11 @@ O arquivo `exploracao.py` realiza a leitura da base de dados e a inspeção inic
 ### Principais descobertas
 
 A análise exploratória permitiu identificar problemas relevantes de qualidade dos dados na base, como colunas completamente vazias, valores inválidos em categorias, registros duplicados e inconsistências entre identificadores de produtos. Também foi necessário ajustar o processo de leitura do arquivo CSV e realizar conversões manuais de tipos de dados para garantir o funcionamento correto das análises estatísticas e das etapas de limpeza.
+Também foi identificado que os registros com valor #N/D na coluna PR_CAT estavam associados aos mesmos registros com valor #N/D na coluna PR_NOME.
+
+Conforme solicitado no documento da atividade, os valores inválidos da coluna PR_CAT foram substituídos por SEM CATEGORIA.
+
+Já na coluna PR_NOME, os valores #N/D foram convertidos para pd.NA, pois representam ausência de identificação do produto e não havia regra definida para substituição desses registros.
 
 ### Alteração na Leitura do CSV
 
@@ -36,7 +41,7 @@ Para resolver o problema, foi necessário converter manualmente as colunas numé
 
 ### Inconsistências identificadas
 
-#### Colunas Float totalmente vazias
+#### Colunas totalmente vazias
 
 Na leitura inicial utilizando `pandas.read_csv()`, foram identificadas múltiplas colunas vazias nomeadas automaticamente como `Unnamed`, com tipo `float64`, devido à inferência automática de tipos realizada pelo pandas.
 

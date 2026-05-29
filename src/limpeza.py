@@ -24,13 +24,19 @@ def limpar_texto(df):
     return df
 
 def remover_colunas_vazias(df):
-    # Remove colunas vazias
-    df = df.dropna(axis=1, how='all')    
+    # Remove colunas totalmente nulas
+    df = df.dropna(axis=1, how='all')
+
+    # Remove colunas com nome vazio
+    df = df.loc[:, df.columns.str.strip() != '']  
+
     return df
 
 def substituir_nulos(df):
     #Substitui valores "#N/D" por "SEM CATEGORIA" na coluna PR_CAT
     df['PR_CAT'] = df['PR_CAT'].replace('#N/D', 'SEM CATEGORIA')
+    # Substitui nomes inválidos por valor nulo
+    df['PR_NOME'] = df['PR_NOME'].replace('#N/D', pd.NA)
     return df
 
 def limpar_datas(df):
@@ -47,4 +53,12 @@ def limpar_datas(df):
         format='%d/%m/%Y',
         errors='coerce'
     )
+    
+    return df
+
+def salvar_dados_limpos(df):
+    print("\nSalvando arquivo limpo...")
+    df.to_csv('../dados/Base_Varejo_Limpa.csv', index=False)
+    print("Arquivo salvo com sucesso!")
+    
     return df
