@@ -16,7 +16,9 @@ O arquivo `exploracao.py` realiza a leitura da base de dados e a inspeção inic
 - Tipos de dados identificados;
 - Quantidade de valores nulos por coluna;
 - Estatísticas iniciais das colunas numéricas;
-- Valores únicos de colunas categóricas.
+- Valores únicos de colunas categóricas;
+- Volume de Compras por Gênero;
+- Volume de Compras por Segmento de Cliente.
 
 ### Principais descobertas
 
