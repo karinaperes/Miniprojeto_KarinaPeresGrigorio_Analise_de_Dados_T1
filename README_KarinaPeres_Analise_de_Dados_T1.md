@@ -1,42 +1,76 @@
 # Mini-Projeto Avaliativo - Análise de Dados com Python
 
-## Requisitos
+## Objetivo
 
-Antes de executar o projeto, é necessário ter instalado:
+Realizar uma Análise Exploratória de Dados (AED) da base Varejo, aplicando conceitos de ETL, limpeza de dados, estatística descritiva e análise de padrões de agrupamento.
+
+---
+
+## Tecnologias Utilizadas
 
 - Python 3
-- Biblioteca pandas
+- Pandas
+- CSV (csv.DictReader)
 
-Instale o pandas com o comando:
-
-`pip install pandas`
+---
 
 ## Estrutura do Projeto
 
-O projeto está organizado nos seguintes arquivos:
+```text
+Miniprojeto_KarinaPeresGrigorio_Analise_de_Dados_T1/
 
-- main.py → arquivo principal para execução
-- exploracao.py → análise exploratória dos dados
-- limpeza.py → tratamento e limpeza dos dados
-- estatistica.py → cálculo das estatísticas descritivas
-- dados/Base_Varejo.csv → base de dados utilizada
+├── dados/
+│   ├── Base_Varejo.csv
+│   └── Base_Varejo_Limpa.csv
+|
+├── src/
+│   ├── main.py
+│   ├── exploracao.py
+│   ├── limpeza.py
+│   └── estatistica.py
+|
+├── README.md
+├── README_KarinaPeresGrigorio_Analise_de_Dados_T1.md
+├── requirements.txt
+└── .gitignore
+```
 
-## Como executar
+## Como Executar
 
-1. Abra o projeto no VSCode ou outro editor de sua preferência.
-2. Abra o terminal na pasta do projeto.
-3. Execute o arquivo principal com o comando:
+1. Clonar o repositório `git clone URL_DO_REPOSITORIO`
+2. Acessar a pasta do projeto `cd Miniprojeto_KarinaPeresGrigorio_Analise_de_Dados_T1`
+3. Criar ambiente virtual `python -m venv .venv`
+4. Ativar ambiente virtual
+
+- Git Bash:
+```bash
+source .venv/Scripts/activate
+```
+- Prompt de Comando:
+```
+.venv\Scripts\activate
+```
+5. Instalar dependências `pip install -r requirements.txt`
+6. Executar o projeto
+
+   `cd src`
+
    `python main.py`
 
-## Funcionalidades executadas
+### Saídas Geradas
 
-Ao rodar o projeto serão realizadas:
+Durante a execução são exibidos:
 
-- Leitura do arquivo CSV
-- Análise exploratória dos dados
-- Identificação de inconsistências
-- Tratamento de dados nulos
-- Limpeza e padronização de textos
-- Conversão da coluna de datas
-- Estatísticas da coluna de quantidade de filhos
-- Análise de duplicatas e inconsistências entre produtos
+- Informações gerais da base;
+- Valores nulos;
+- Valores inválidos;
+- Duplicatas;
+- Correspondência entre produtos e identificadores;
+- Estatísticas da coluna de filhos;
+- Agrupamentos por gênero e segmento.
+
+Também é gerado automaticamente o arquivo:
+
+`dados/Base_Varejo_Limpa.csv`
+
+contendo a base após as etapas de limpeza.
