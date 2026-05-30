@@ -122,3 +122,12 @@ def analisar_correspondencia(df):
     print('-----------------------------------')
     inconsistencias_pr_id = df.groupby('PR_CAT')['PR_ID'].nunique()
     print(inconsistencias_pr_id[inconsistencias_pr_id > 1])
+
+def analisar_padroes_venda(df):
+    print('\n--> Análise de Padrões de Agrupamento:')
+    print('\nContagem de clientes por gênero:')
+    print('-----------------------------------')    
+    print(df.groupby('CL_GENERO').size())
+    print('\nContagem de clientes por segmento:')
+    print('-----------------------------------')
+    print(df.groupby('CL_SEG').size())

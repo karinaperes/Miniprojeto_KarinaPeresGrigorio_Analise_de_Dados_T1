@@ -3,7 +3,8 @@ from exploracao import (
     exibir_informacoes, 
     analisar_colunas, 
     analisar_duplicatas,
-    analisar_correspondencia
+    analisar_correspondencia,
+    analisar_padroes_venda
     )
 from limpeza import (
     limpar_texto,
@@ -21,6 +22,7 @@ def main():
     analisar_colunas(df)
     analisar_duplicatas(df)
     analisar_correspondencia(df)
+    analisar_padroes_venda(df)
     df = limpar_texto(df)
     df = remover_colunas_vazias(df)
     df = substituir_nulos(df)
