@@ -51,9 +51,10 @@ Após a alteração para `csv.DictReader`, essas colunas passaram a ser interpre
 
 #### Colunas String
 
-- `CL_GENERO` sem inconsistências aparentes;
-- `CL_SEG` sem inconsistências aparentes;
-- `PR_CAT` possui registros com valor `#N/D`.
+- CL_GENERO sem inconsistências aparentes;
+- CL_SEG sem inconsistências aparentes;
+- PR_CAT possui 3.650 registros com valor `#N/D`;
+- PR_NOME possui os mesmos 3.650 registros com valor `#N/D`.
 
 #### Colunas Integer
 
@@ -105,8 +106,7 @@ Os resultados indicam que a maior parte dos clientes não possui filhos.
 
 Durante a análise exploratória foram identificadas:
 
-96.553 linhas completamente duplicadas considerando todas as colunas;
-176.327 registros duplicados considerando apenas CO_ID, PR_NOME e DATA.
+96.553 linhas completamente duplicadas considerando todas as colunas.
 
 A remoção automática dessas duplicatas não foi aplicada inicialmente, pois a base não possui uma coluna de quantidade de itens comprados, indicando que registros repetidos podem representar compras legítimas do mesmo produto na mesma data.
 
@@ -143,3 +143,35 @@ A análise por categoria mostrou divergência entre quantidade de nomes de produ
 | BEBIDAS   | 6              | 12           |
 
 Os resultados indicam possível inconsistência entre identificadores de produtos. A unificação dos PR_ID não foi aplicada por falta de informações que permitam identificar qual código deve ser considerado correto.
+
+## Padrões de Agrupamento
+
+Foram realizadas análises de agrupamento utilizando o método groupby() para identificar padrões na base.
+
+### Compras por gênero
+
+| Gênero    | Quantidade |
+| --------- | ---------: |
+| Feminino  |    432.576 |
+| Masculino |    397.424 |
+
+Observa-se uma maior quantidade de registros associados ao público feminino.
+
+### Compras por segmento
+
+| Segmento | Quantidade |
+| -------- | ---------: |
+| A        |     67.736 |
+| B        |    530.163 |
+| C        |    232.101 |
+
+O segmento B concentra a maior parte dos registros da base.
+
+## Conclusões
+
+- Foram identificados 96.553 registros completamente duplicados na base.
+- Foram encontrados 3.650 registros com categoria inválida (#N/D), corrigidos para "SEM CATEGORIA".
+- Os mesmos 3.650 registros também apresentavam produto não identificado, sendo convertidos para valores nulos em PR_NOME.
+- Foram identificados 109 produtos associados a mais de um PR_ID, indicando possível inconsistência cadastral.
+- A maior parte dos clientes não possui filhos, conforme demonstrado pela mediana e moda iguais a zero.
+- O segmento B concentra a maior parte dos registros da base, enquanto o público feminino possui maior volume de compras registradas.
